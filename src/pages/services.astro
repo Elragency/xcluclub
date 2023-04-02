@@ -1,76 +1,103 @@
 ---
+import { getCollection } from 'astro:content';
+import CallToAction from '../components/CallToAction.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-
+import Icon from '../components/Icon.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import Hero from '../components/Hero.astro';
-import Skills from '../components/Skills.astro';
+import Skills2 from '../components/Skills2.astro';
 import Grid from '../components/Grid.astro';
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+
+
+// Content Fetching: List four most recent work projects
+const projects = (await getCollection('work'))
+	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+	.slice(0, 4);
 ---
 
-<BaseLayout title="À Propos | Xclusivity Club" description="À Propos de nous">
+<BaseLayout title="À Propos | Xclusivity" description="À Propos de nous">
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
 				<Hero
 					title="Il est temps de vivre de votre contenu"
-					tagline="Nous sommes une firme marketing specilise pour les creatrices de contenu"
+					tagline="Cela est plus que possible, laissez-nous vous montrer comment."
 					align="start"
 				>
 				</Hero>
-
+				<br>
+				<Skills2 />
 
 			</header>
+			<body>
+				<section class="section with-background bg-variant">
+					<header class="section-header stack gap-2 lg:gap-4">
+						<h3>FAQ</h3>
+						<p>
+							Afin d'être le plus transparent possible avec vous, voici les réponses aux questions que nous recevons le plus fréquemment:
+						</p>
+					</header>
+	
+					<div class="gallery">
+						<Grid variant="medium">
+							{
+								["Quels sont nos Frais: 15% des revenues des profils que nous gérons, si nous n'obtenons pas de résultats, nous ne sommes pas payés.", 
+								"Contrat: Afin de nous permettre d'obtenir les résultats souhaités et éviter de travailler pour rien, nous établissons des contrats de douze (12) mois. ", 
+								'Modalité de paiment: 5 jours suivant la fin du mois, les paiements peuvent être effectués par virement bancaire, interac ou cash.', 
+								'Production de contenu: Nous pouvons vous aider à produire du contenu si vous êtes dans les environs de montréal, nous sommes situés sur la rive-sud.', 
+								'Diversification de revenues: Nous pouvons vous aider à mettre sur pied de nouvelles façons de générer des revenues tels que des abonnements snapchat, telgram ou encore un site web.',
+								"Notre but est de créer des partneriats sur le long terme et de s'assurer que vous viviez de votre contenu plus que confortablement, contactez-nous maintenant !"].map((brand) => (
+									<li class="mention-card">
+										<p>{brand}</p>
+									</li>
+								))
+							}
+						</Grid>
+					</div>
+				</section>
 
-			<Skills />
-		</div>
+		
 
-		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Nos Ressources</h3>
-					<p>Nous nous efforçons de publier du contenu qui saura vous aider dans votre aventure afin de vous permettre de vivre de votre contenu.</p>
-				</header>
 
-				</div>
 
-			
-					
-			
-		</main>
+
+
 		<form name="contactv1" method="POST" data-netlify="true">
 			<section class="relative md:-mt-[76px] form1">
 				<body class="f1">
-				  <h1><strong>DEBUTEZ MAINTENANT</strong></h1>
+				  <h1><strong>DÉBUTEZ MAINTENANT</strong></h1>
 				  <p>Remplissez toutes les cases s'il vous plait</p>
 				  <form action='https://register-demo.freecodecamp.org'>
 					<fieldset>
-					  <label>Prénom: <input type="text" name="first-name" required /></label>
-					  <label>Nom: <input type="text" name="last-name" required /></label>
+					  <label>Instagram: <input type="text" name="instagram" required /></label>
+					  <label>Onlyfans: <input type="text" name="onlyfans" required /></label>
 					  <label>Courriel: <input type="email" name="email" required /></label>
-					  <label>Téléphone: <input type="phone" name="phone" required /></label>
-					  <label>Nombre d’unité dans l’immeuble: <input type="number" name="nb-unites" min="1" required /></label>
-					  <label>Commentaires additionnels:
+					  <label>Nombre de fans: <input type="number" name="nb-fans" required /></label>
+					  <label>Cout pour votre abonnement: <input type="number" name="prix" min="1" required /></label>
+					  <label>Parlez-nous de vous ainsi que de vos buts:
 						  <textarea name="bio" rows="3" cols="30" placeholder="Avez-vous des specifications precises ?"></textarea>
 							  </label>
 					</fieldset>
 					<fieldset>
-					  <label>Meilleur moment pour vous joindre:
+					  <!-- <label>Meilleur moment pour vous joindre:
 						  <select name="referrer">
 							<option value="0">Peu importe</option>
 							<option value="1">Matin</option>
 							<option value="2">Midi</option>
 							<option value="3">Soir</option>
-						  </select>
+						  </select> -->
 					  <!-- <label>Meilleur moment pour vous joindre:</label>
 					  <label><input type="checkbox" name="dispos" class="inline" /> Peu importe</label>
 					  <label><input type="checkbox" name="dispos" class="inline" /> Matin</label>
 					  <label><input type="checkbox" name="dispos" class="inline" /> Midi</label>
 					  <label><input type="checkbox" name="dispos" class="inline" /> Soir</label>
 					  <label> -->
-						  <label>Consentement</label>
-						<input type="checkbox" name="terms" class="inline" required /> J'accepte que Laucandrique me contacte 
+						  <!-- <label>Consentement</label>
+						<input type="checkbox" name="terms" class="inline" required /> J'accepte que Xclusivity me contacte 
 						<div><a href="/terms">Termes et conditions</a></div>
-							</label>
+							</label> -->
 					</fieldset>
 					<input type="submit" value="Envoyer !" />
 				  </form>
@@ -184,10 +211,12 @@ select {
   margin: 10px 0 0 0;
 	width: 100%;
   min-height: 2em;
+  border-color: white;
+  background-color: white;
 }
 
 input, textarea {
-  background-color: #0a0a23;
+  background-color: #d18df6;
   border: 1px solid #0a0a23;
   color: #ffffff;
 }
@@ -215,6 +244,13 @@ input[type="file"] {
 
 a {
   color: #dfdfe2;
+}
+
+h3 {
+	text-align: center;
+}
+.imgtest {
+	text-align: center;
 }
 
 </style>

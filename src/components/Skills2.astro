@@ -1,0 +1,77 @@
+---
+import Icon from './Icon.astro';
+---
+
+<section class="box skills">
+	<div class="stack gap-2 lg:gap-4">
+		<Icon icon="terminal-window" color="var(--accent-regular)" size="2.5rem" gradient />
+		<h2>Création d'identité de marque</h2>
+		<p> Libérez la puissance de votre marque avec nos services de création d'identité de marque sur mesure. Nous cultivons une identité visuelle unique et cohérente, en intégrant la voix de la marque, le design de l'ambiance, les schémas de couleurs et la typographie pour créer une présence de marque inoubliable qui résonne avec votre public cible.</p>
+	</div>
+	<div class="stack gap-2 lg:gap-4">
+		<Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" gradient />
+		<h2>Stratégie d'affaires et de marketing</h2>
+		<p>Propulsez votre entreprise vers de nouveaux sommets avec nos services de stratégie d'affaires et de marketing complets. Nos experts en stratégie analysent votre marché, votre concurrence et vos objectifs pour développer une feuille de route personnalisée qui accélère la croissance, optimise les ressources et offre un succès à long terme.</p>
+	</div>
+	<div class="stack gap-2 lg:gap-4">
+		<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
+		<h2>Planification de la communication</h2>
+		<p> Engagez et inspirez votre public avec nos services de planification stratégique de communication. Nous concevons des campagnes de communication multicanaux efficaces qui transmettent efficacement votre message, amplifient la notoriété de votre marque et favorisent des relations significatives avec vos clients.</p>
+	</div>
+	<div class="stack gap-2 lg:gap-4">
+		<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
+		<h2>Planification de contenu </h2>
+		<p>Stimulez l'engagement et la conversion des clients avec nos services de planification de contenu minutieux. Nos spécialistes de contenu créent des stratégies de contenu axées sur les données et centrées sur l'audience qui alimentent votre présence numérique, améliorent la narration de votre marque et captivent votre marché cible.</p>
+	</div>
+	<div class="stack gap-2 lg:gap-4">
+		<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
+		<h2>Création de Site Web</h2>
+		<p>Transformez votre présence en ligne avec notre service de Création de Site Web personnalisé. Nos experts en conception web allient esthétique, fonctionnalité et ergonomie pour développer un site internet captivant et performant, qui met en valeur votre marque et stimule l'engagement des utilisateurs.</p>
+	</div>
+	<div class="stack gap-2 lg:gap-4">
+		<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
+		<h2>Services de Consultant</h2>
+		<p>Bénéficiez de conseils avisés et de solutions sur mesure avec nos Services de Consultant. Notre équipe d'experts vous accompagne dans la résolution de défis complexes, l'optimisation des processus et la mise en place de stratégies innovantes pour garantir la réussite de votre entreprise et la satisfaction de vos clients.</p>
+	</div>
+</section>
+
+<style>
+	.box {
+		border: 1px solid var(--gray-800);
+		border-radius: 0.75rem;
+		padding: 1.5rem;
+		background-color: var(--gray-999_40);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.skills {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+
+	.skills h2 {
+		font-size: var(--text-lg);
+	}
+
+	.skills p {
+		color: var(--gray-400);
+	}
+
+	@media (min-width: 50em) {
+		.box {
+			border-radius: 1.5rem;
+			padding: 2.5rem;
+		}
+
+		.skills {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 5rem;
+		}
+
+		.skills h2 {
+			font-size: var(--text-2xl);
+		}
+	}
+</style>
